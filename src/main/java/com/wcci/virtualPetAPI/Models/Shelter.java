@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.Collection;
-import java.util.UUID;
 
 @Entity
 public class Shelter {
@@ -62,4 +61,5 @@ public class Shelter {
     public Collection<RoboticCat> getRoboticCats() {
         return roboticCats;
     }
+
 }

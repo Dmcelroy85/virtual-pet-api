@@ -2,7 +2,7 @@ package com.wcci.virtualPetAPI.Controllers;
 
 
 import com.wcci.virtualPetAPI.Models.*;
-import com.wcci.virtualPetAPI.Repos.*;
+import com.wcci.virtualPetAPI.Repositories.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

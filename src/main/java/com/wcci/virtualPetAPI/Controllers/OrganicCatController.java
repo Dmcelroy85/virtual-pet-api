@@ -1,6 +1,6 @@
 package com.wcci.virtualPetAPI.Controllers;
 
-import com.wcci.virtualPetAPI.Repos.OrganicCatRepository;
+import com.wcci.virtualPetAPI.Repositories.OrganicCatRepository;
 import com.wcci.virtualPetAPI.Models.OrganicCat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,12 +24,6 @@ public class OrganicCatController {
     public OrganicCat getSingleCat(@PathVariable long id) {
         return organicCatRepo.findById(id).get();
     }
-
-    /*@PostMapping("/organicCats")
-    public Iterable<OrganicCat> addNewOrganicCat(@RequestBody OrganicCat newOrganicCat) {
-        organicCatRepo.save(newOrganicCat);
-        return organicCatRepo.findAll();
-    }*/
 
     @PutMapping("/organicCats/{id}/feedCat")
     public OrganicCat feed(@PathVariable long id) {
