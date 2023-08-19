@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
-// @JsonDeserialize(as = OrganicDog.class)
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class NamedPet {

@@ -62,4 +62,11 @@ public class Shelter {
         return roboticCats;
     }
 
+    public Collection<NamedPet> getAllPets() {
+        return null;
+    }
+
+    public void tickAll() {
+    }
+
 }

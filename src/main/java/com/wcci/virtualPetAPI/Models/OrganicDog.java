@@ -8,7 +8,7 @@ import static com.wcci.virtualPetAPI.Models.NamedPet.PET_TYPE.ORGANIC_DOG;
 public class OrganicDog extends NamedPet {
 
     private int hunger = 6;
-    private final PET_TYPE type = ORGANIC_DOG;
+    private PET_TYPE type = ORGANIC_DOG;
 
     public PET_TYPE getType() {
         return type;
@@ -37,6 +37,14 @@ public class OrganicDog extends NamedPet {
     @Override
     public void tick() {
         hunger++;
+    }
+
+    public String status() {
+        return null;
+    }
+
+    public String showPet() {
+        return null;
     }
 
 }

@@ -8,7 +8,7 @@ import static com.wcci.virtualPetAPI.Models.NamedPet.PET_TYPE.ROBOTIC_DOG;
 public class RoboticDog extends NamedPet {
 
     private int oil = 6;
-    private final PET_TYPE type = ROBOTIC_DOG;
+    private PET_TYPE type = ROBOTIC_DOG;
 
     public PET_TYPE getType() {
         return type;
@@ -38,5 +38,15 @@ public class RoboticDog extends NamedPet {
     @Override
     public void tick() {
         oil++;
+    }
+
+
+    public Object status() {
+        return null;
+    }
+
+
+    public String showPet() {
+        return null;
     }
 }

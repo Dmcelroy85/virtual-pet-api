@@ -245,7 +245,7 @@ public class ShelterController {
             roboticDogRepo.save(roboticDog);
         }
     }
-
+    
     @PutMapping("shelter/tickAll")
     public void tickAll(){
         Iterable<RoboticCat> allRoboticCats = roboticCatRepo.findAll();

@@ -21,7 +21,6 @@ public class PetsController {
         this.namedPetRepository = namedPetRepository;
     }
 
-    //    curl -X GET http://localhost:8080/api/shelters/1/pets -H 'Content-Type: application/json'
     @GetMapping("/api/shelters/{shelter_id}/pets")
     public Collection<NamedPet> getShelters(@PathVariable final long shelter_id) {
         return shelterRepository.findById(shelter_id).get().getAllPets();

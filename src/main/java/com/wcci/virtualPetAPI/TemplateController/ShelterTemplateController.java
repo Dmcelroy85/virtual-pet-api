@@ -15,14 +15,12 @@ public class ShelterTemplateController {
     private OrganicCatRepository organicCatRepository;
     private RoboticDogRepository roboticDogRepository;
     private RoboticCatRepository roboticCatRepository;
-
-    public ShelterTemplateController(@Autowired ShelterRepository shelterRepository, NamedPetRepository namedPetRepository, OrganicDogRepository organicDogRepository, OrganicCatRepository organicCatRepository, RoboticDogRepository roboticDogRepository, RoboticCatRepository roboticCatRepository) {
+    public ShelterTemplateController(@Autowired ShelterRepository shelterRepository, OrganicDogRepository organicDogRepository, OrganicCatRepository organicCatRepository, RoboticDogRepository roboticDogRepository, RoboticCatRepository roboticCatRepository) {
         this.shelterRepository = shelterRepository;
         this.organicDogRepository = organicDogRepository;
         this.organicCatRepository = organicCatRepository;
         this.roboticDogRepository = roboticDogRepository;
         this.roboticCatRepository = roboticCatRepository;
-        this.namedPetRepository = namedPetRepository;
     }
 
     @GetMapping("/index")
