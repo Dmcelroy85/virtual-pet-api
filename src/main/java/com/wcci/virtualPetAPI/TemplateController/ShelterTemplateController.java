@@ -36,60 +36,72 @@ public class ShelterTemplateController {
 
     @GetMapping("/shelters/{shelter_id}/specificShelter.js")
     public String getJavaScript(Model model, @PathVariable long shelter_id) {
-        model.addAttribute("shelter", shelterRepository.findById(shelter_id).get());
-        model.addAttribute("pets", shelterRepository.findById(shelter_id).get().getAllPets());
+        Shelter shelter = shelterRepository.findById(shelter_id).orElse(null);
+        if (shelter != null) {
+            model.addAttribute("shelter", shelter);
+            model.addAttribute("pets", shelter.getAllPets());
+        }
         return "specificShelter.js";
     }
 
     @GetMapping("/shelters/{shelter_id}")
     public String getShelter(Model model, @PathVariable long shelter_id) {
-        model.addAttribute("shelter", shelterRepository.findById(shelter_id).get());
-        model.addAttribute("pets", shelterRepository.findById(shelter_id).get().getAllPets());
+        Shelter shelter = shelterRepository.findById(shelter_id).orElse(null);
+        if (shelter != null) {
+            model.addAttribute("shelter", shelter);
+            model.addAttribute("pets", shelter.getAllPets());
+        }
         return "specificShelter.html";
     }
 
     @PostMapping("/shelters")
     public String postShelters(final Shelter shelter) {
         shelterRepository.save(shelter);
-        return "redirect:/shelters";
+        return "shelters";
     }
 
     @PostMapping("/shelters/{shelter_id}/organicDog")
     public String addOrganicDog(@RequestParam String name, @PathVariable Long shelter_id) {
-        OrganicDog organicDog = new OrganicDog(name);
-        organicDog.setShelter(shelterRepository.findById(shelter_id).get());
-        organicDogRepository.save(organicDog);
-        return "redirect:/shelters/" + shelter_id;
+        Shelter shelter = shelterRepository.findById(shelter_id).orElse(null);
+        if (shelter != null) {
+            OrganicDog organicDog = new OrganicDog(name);
+            organicDog.setShelter(shelter);
+            organicDogRepository.save(organicDog);
+        }
+        return "shelters/" + shelter_id;
     }
 
     @PostMapping("/shelters/{shelter_id}/organicCat")
     public String addOrganicCat(@RequestParam String name, @PathVariable Long shelter_id) {
-        OrganicCat organicCat = new OrganicCat(name);
-        organicCat.setShelter(shelterRepository.findById(shelter_id).get());
-        organicCatRepository.save(organicCat);
-        return "redirect:/shelters/" + shelter_id;
+        Shelter shelter = shelterRepository.findById(shelter_id).orElse(null);
+        if (shelter != null) {
+            OrganicCat organicCat = new OrganicCat(name, 0, 0, 0, 0, shelter);
+            organicCat.setShelter(shelter);
+            organicCatRepository.save(organicCat);
+        }
+        return "shelters/" + shelter_id;
     }
 
     @PostMapping("/shelters/{shelter_id}/roboticDog")
     public String addRoboticDog(@RequestParam String name, @PathVariable Long shelter_id) {
-        RoboticDog roboticDog = new RoboticDog(name);
-        roboticDog.setShelter(shelterRepository.findById(shelter_id).get());
-        roboticDogRepository.save(roboticDog);
-        return "redirect:/shelters/" + shelter_id;
+        Shelter shelter = shelterRepository.findById(shelter_id).orElse(null);
+        if (shelter != null) {
+            RoboticDog roboticDog = new RoboticDog(name);
+            roboticDog.setShelter(shelter);
+            roboticDogRepository.save(roboticDog);
+        }
+        return "shelters/" + shelter_id;
     }
 
     @PostMapping("/shelters/{shelter_id}/roboticCat")
     public String addRoboticCat(@RequestParam String name, @PathVariable Long shelter_id) {
-        RoboticCat roboticCat = new RoboticCat(name);
-        roboticCat.setShelter(shelterRepository.findById(shelter_id).get());
-        roboticCatRepository.save(roboticCat);
-        return "redirect:/shelters/" + shelter_id;
-    }
-
-    @PutMapping("/shelters/{shelter_id}")
-    public void tickAll(@PathVariable Long shelter_id) {
-        shelterRepository.findById(shelter_id).get().tickAll();
-        shelterRepository.save(shelterRepository.findById(shelter_id).get());
+        Shelter shelter = shelterRepository.findById(shelter_id).orElse(null);
+        if (shelter != null) {
+            RoboticCat roboticCat = new RoboticCat(name);
+            roboticCat.setShelter(shelter);
+            roboticCatRepository.save(roboticCat);
+        }
+        return "shelters/" + shelter_id;
     }
 
 }
