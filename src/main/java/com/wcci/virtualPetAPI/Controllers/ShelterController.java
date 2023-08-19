@@ -246,7 +246,6 @@ public class ShelterController {
         }
     }
 
-    // I believe that this method should be called within other methods like feedAll and oilAll...etc
     @PutMapping("shelter/tickAll")
     public void tickAll(){
         Iterable<RoboticCat> allRoboticCats = roboticCatRepo.findAll();

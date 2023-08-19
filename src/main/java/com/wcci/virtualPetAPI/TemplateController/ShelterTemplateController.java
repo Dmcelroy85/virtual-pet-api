@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ShelterTemplateController {
-    final private ShelterRepository shelterRepository;
-    final private OrganicDogRepository organicDogRepository;
-    final private OrganicCatRepository organicCatRepository;
-    final private RoboticDogRepository roboticDogRepository;
-    final private RoboticCatRepository roboticCatRepository;
+    private ShelterRepository shelterRepository;
+    private OrganicDogRepository organicDogRepository;
+    private OrganicCatRepository organicCatRepository;
+    private RoboticDogRepository roboticDogRepository;
+    private RoboticCatRepository roboticCatRepository;
 
     public ShelterTemplateController(@Autowired ShelterRepository shelterRepository, NamedPetRepository namedPetRepository, OrganicDogRepository organicDogRepository, OrganicCatRepository organicCatRepository, RoboticDogRepository roboticDogRepository, RoboticCatRepository roboticCatRepository) {
         this.shelterRepository = shelterRepository;
@@ -22,6 +22,7 @@ public class ShelterTemplateController {
         this.organicCatRepository = organicCatRepository;
         this.roboticDogRepository = roboticDogRepository;
         this.roboticCatRepository = roboticCatRepository;
+        this.namedPetRepository = namedPetRepository;
     }
 
     @GetMapping("/index")
