@@ -15,6 +15,7 @@ public class ShelterTemplateController {
     private OrganicCatRepository organicCatRepository;
     private RoboticDogRepository roboticDogRepository;
     private RoboticCatRepository roboticCatRepository;
+    
     public ShelterTemplateController(@Autowired ShelterRepository shelterRepository, OrganicDogRepository organicDogRepository, OrganicCatRepository organicCatRepository, RoboticDogRepository roboticDogRepository, RoboticCatRepository roboticCatRepository) {
         this.shelterRepository = shelterRepository;
         this.organicDogRepository = organicDogRepository;

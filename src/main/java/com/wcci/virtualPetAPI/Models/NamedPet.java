@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-abstract public class NamedPet {
+public class NamedPet {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
